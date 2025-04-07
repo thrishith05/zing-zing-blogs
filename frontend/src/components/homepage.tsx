@@ -1,4 +1,5 @@
 import Footer from "./footer";
+import Navbar from "./navbar";
 
 export default function HomePage() {
     const blogs = [
@@ -35,8 +36,10 @@ export default function HomePage() {
     ];
   
     return (
+      <>
+      <Navbar></Navbar>
       <div className="bg-gradient-to-r from-gray-50 to-gray-100 min-h-screen">
-        {/* Hero Section */}
+
         <section className="bg-gradient-to-r from-indigo-500 to-purple-600 text-white py-20 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Welcome to ZingZing Blog</h1>
           <p className="text-lg md:text-xl max-w-2xl mx-auto">
@@ -47,7 +50,7 @@ export default function HomePage() {
           </button>
         </section>
   
-        {/* Blog Posts Preview */}
+
         <section className="max-w-5xl mx-auto px-4 py-12">
           <h2 className="text-3xl font-semibold mb-8 text-gray-800 text-center">Hot Topics</h2>
   
@@ -67,7 +70,7 @@ export default function HomePage() {
           </div>
         </section>
   
-        {/* Featured Creators */}
+
         <section className="bg-gradient-to-r from-gray-100 to-gray-50 py-16">
           <h2 className="text-3xl font-semibold text-center text-gray-800 mb-10">
             Featured Creators
@@ -84,14 +87,9 @@ export default function HomePage() {
             ))}
           </div>
         </section>
-
-  
-        {/* Footer */}
-        {/* <footer className="bg-gray-800 text-white text-center py-6">
-          <p>© {new Date().getFullYear()} ZingZing Blog. Built with ❤️ and React.</p>
-        </footer> */}
         <Footer></Footer>
       </div>
+      </>
     );
   }
   
