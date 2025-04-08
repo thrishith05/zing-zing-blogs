@@ -6,7 +6,7 @@ interface NavbarProps {
   user: {
     id: string;
     name?: string;
-    email: string;
+    email?: string;
   };
 }
 
@@ -17,9 +17,11 @@ export default function NavbarSignedup({ user }: NavbarProps) {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    console.log("Logout logic goes here");
+    localStorage.clear(); 
+    console.log("User logged out. localStorage cleared.");
     navigate("/login");
   };
+  
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -62,13 +64,13 @@ export default function NavbarSignedup({ user }: NavbarProps) {
               onClick={() => setDropdownOpen(!dropdownOpen)}
               className="flex items-center justify-center bg-white h-10 w-10 rounded-full text-purple-600 font-bold text-xl focus:outline-none"
             >
-              {user.name ? user.name[0].toUpperCase() : "U"}
+              {"U"}
             </button>
 
             {dropdownOpen && (
               <div className="absolute right-0 mt-2 py-2 w-48 bg-white text-black rounded-lg shadow-lg z-10">
                 <NavLink
-                  to={`/myblog/${user.id}`}
+                  to={`/myblog/${user}`}
                   className="block px-4 py-2 hover:bg-indigo-500 hover:text-white"
                 >
                   My Blogs

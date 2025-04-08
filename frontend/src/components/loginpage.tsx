@@ -1,8 +1,42 @@
-import { NavLink } from "react-router-dom";
+import { useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import Footer from "./footer";
 import Navbar from "./navbar";
 
 export default function LoginPage() {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    try {
+      const res = await fetch("http://localhost:3000/api/v1/user/signin", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ username, password })
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        alert("Login successful");
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("userID", data.userID);
+
+        navigate("/blogs"); 
+      } else {
+        alert(data.message || "Login failed");
+      }
+    } catch (err) {
+      alert("Error connecting to server");
+      console.error(err);
+    }
+  };
+
   return (
     <>
       <Navbar />
@@ -12,8 +46,7 @@ export default function LoginPage() {
             Welcome Back to ZingZing{" "}
           </h1>
           <p className="text-lg md:text-xl max-w-2xl mx-auto">
-            Log in and reconnect with your favorite dev stories, tips &
-            community vibes!
+            Log in and reconnect with your favorite dev stories, tips & community vibes!
           </p>
         </section>
 
@@ -22,14 +55,17 @@ export default function LoginPage() {
             <h2 className="text-2xl font-semibold text-indigo-600 mb-6 text-center">
               Log In
             </h2>
-            <form className="space-y-5">
+            <form onSubmit={handleLogin} className="space-y-5">
               <div>
                 <label className="block text-gray-700 font-medium mb-1">
-                  Email
+                  Username
                 </label>
                 <input
-                  type="email"
-                  placeholder="you@example.com"
+                  type="text"
+                  placeholder="your_username"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                  required
                   className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400"
                 />
               </div>
@@ -40,6 +76,9 @@ export default function LoginPage() {
                 <input
                   type="password"
                   placeholder="••••••••"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
                   className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400"
                 />
               </div>

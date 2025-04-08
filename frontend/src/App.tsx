@@ -10,6 +10,7 @@ import BlogsPage from "./components/blogspage";
 import BlogPage from "./components/blogpage";
 import MyBlogsPage from "./components/myblogspage";
 import EditPage from "./components/editpage";
+import PublishPage from "./components/publishpage";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -25,6 +26,8 @@ function App() {
         <Route path="/blog/:id" element={<BlogPage></BlogPage>} />
         <Route path="/myblog/:id" element={<MyBlogsPage></MyBlogsPage>} />
         <Route path="/edit/:id" element={<EditPage></EditPage>} />
+        <Route path="/publish" element={<PublishPage />} />
+
       </Routes>
     </Router>
   );
