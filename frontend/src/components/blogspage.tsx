@@ -1,12 +1,23 @@
 import Footer from "./footer";
-import Navbar from "./navbar";
 import { Link } from "react-router-dom";
 import blogs from "../data/one.ts";
+import NavbarSignedup from "./navbarsignedup.tsx";
+
+import usersData from "../data/two.ts";
+
+interface user {
+  id: string;
+  name: string;
+  email: string;
+}
+
+
+const currentUser = usersData.find((u) => u.id === "12");
 
 export default function BlogsPage() {
   return (
     <>
-      <Navbar />
+    <NavbarSignedup user={currentUser} />
       <div className="bg-gradient-to-r from-gray-50 to-gray-100 min-h-screen flex flex-col justify-between">
         <section className="max-w-6xl mx-auto px-6 py-16 space-y-10">
           {blogs.map((blog) => (
