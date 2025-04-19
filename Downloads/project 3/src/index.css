@@ -1,0 +1,332 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .animation-delay-100 {
+    animation-delay: 100ms;
+  }
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+}
+
+@keyframes dns-query {
+  0% {
+    transform: scaleX(0);
+    transform-origin: left;
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    transform: scaleX(1);
+    transform-origin: left;
+    opacity: 1;
+  }
+}
+
+@keyframes dns-response {
+  0% {
+    transform: scaleX(0);
+    transform-origin: right;
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    transform: scaleX(1);
+    transform-origin: right;
+    opacity: 1;
+  }
+}
+
+@keyframes dns-query-vertical {
+  0% {
+    transform: scaleY(0);
+    transform-origin: bottom;
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    transform: scaleY(1);
+    transform-origin: bottom;
+    opacity: 1;
+  }
+}
+
+@keyframes dns-response-vertical {
+  0% {
+    transform: scaleY(0);
+    transform-origin: top;
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    transform: scaleY(1);
+    transform-origin: top;
+    opacity: 1;
+  }
+}
+
+@keyframes http-packet-request {
+  0% {
+    left: 10%;
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.2);
+  }
+  50% {
+    left: 90%;
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(1.2);
+  }
+  100% {
+    left: 10%;
+    transform: scale(1);
+  }
+}
+
+@keyframes http-packet-response {
+  0% {
+    right: 10%;
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.2);
+  }
+  50% {
+    right: 90%;
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(1.2);
+  }
+  100% {
+    right: 10%;
+    transform: scale(1);
+  }
+}
+
+@keyframes https-packet-request {
+  0% {
+    left: 10%;
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.7);
+  }
+  25% {
+    transform: scale(1.2);
+  }
+  50% {
+    left: 90%;
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(52, 211, 153, 0);
+  }
+  75% {
+    transform: scale(1.2);
+  }
+  100% {
+    left: 10%;
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.7);
+  }
+}
+
+@keyframes https-packet-response {
+  0% {
+    right: 10%;
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.7);
+  }
+  25% {
+    transform: scale(1.2);
+  }
+  50% {
+    right: 90%;
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(52, 211, 153, 0);
+  }
+  75% {
+    transform: scale(1.2);
+  }
+  100% {
+    right: 10%;
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.7);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-dns-query {
+  animation: dns-query 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-dns-response {
+  animation: dns-response 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-dns-query-vertical {
+  animation: dns-query-vertical 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-dns-response-vertical {
+  animation: dns-response-vertical 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-http-packet-request {
+  animation: http-packet-request 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.animate-http-packet-response {
+  animation: http-packet-response 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.animate-https-packet-request {
+  animation: https-packet-request 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.animate-https-packet-response {
+  animation: https-packet-response 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.glass-effect {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.hover-lift {
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+}
+
+.card-shadow {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+              0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.card-shadow-hover {
+  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-shadow-hover:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+              0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transform: translateY(-2px);
+}
+
+.gradient-border {
+  position: relative;
+  border-radius: 0.5rem;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #3b82f6, #06b6d4);
+  border-radius: 0.6rem;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.gradient-border:hover::before {
+  opacity: 1;
+}
+
+.protocol-card {
+  @apply bg-white dark:bg-slate-800 rounded-xl p-6 transition-all duration-300
+         border border-slate-200 dark:border-slate-700
+         hover:border-blue-500 dark:hover:border-blue-400
+         card-shadow-hover;
+}
+
+.protocol-icon {
+  @apply p-3 rounded-lg transition-all duration-300
+         bg-gradient-to-br from-blue-500 to-blue-600
+         dark:from-blue-600 dark:to-blue-700
+         shadow-lg shadow-blue-500/20 dark:shadow-blue-700/20;
+}
+
+.button-primary {
+  @apply px-4 py-2 rounded-md font-medium
+         bg-gradient-to-r from-blue-500 to-blue-600
+         hover:from-blue-600 hover:to-blue-700
+         text-white shadow-lg shadow-blue-500/20
+         transform transition-all duration-300
+         hover:scale-105 active:scale-95;
+}
+
+.button-secondary {
+  @apply px-4 py-2 rounded-md font-medium
+         bg-slate-100 dark:bg-slate-700
+         hover:bg-slate-200 dark:hover:bg-slate-600
+         text-slate-700 dark:text-slate-200
+         transform transition-all duration-300
+         hover:scale-105 active:scale-95;
+}
